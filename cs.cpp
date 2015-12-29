@@ -67,7 +67,8 @@ int main(int argc,char *argv[])
 	wstring str=L"十四是十四，四十是四十。十四不是四十，四十不是十四。"; //待分词的字符串
 	wstring symbol=L"，。！—；【】：《》"; //特殊符号
 	vector<wstring> split; //分割后的字符串
-	word_freq freq; //词频统计类
+	vector<wstring> words; //最后得出的分词结果
+	word_freq L_freq,R_freq,freq; //词频统计类:左邻字，右邻字，单字
 	//wcout<<str<<endl;
 	for (int i=0;i<symbol.size();i++)//删除标点符号
 	{
@@ -95,12 +96,17 @@ int main(int argc,char *argv[])
 	for(long long i=0;i<split.size();i++) //构建左邻字集合
 	{
 		tmp=L"";
+		wstring single_tmp;
 		for(long long j=0;j<split[i].size();j++)
 		{
 			tmp+=split[i][j];
-			freq.add(tmp);
+			L_freq.add(tmp);
+			single_tmp=split[i][j];
+			freq.add(single_tmp);
 		}
 	}
+	L_freq.calculate(str.size());
+	L_freq.print();
 	freq.calculate(str.size());
 	freq.print();
 	for(int i=0;i<split.size();i++)
