@@ -68,7 +68,7 @@ int main(int argc,char *argv[])
 	wstring symbol=L"，。！—；【】：《》"; //特殊符号
 	vector<wstring> split; //分割后的字符串
 	vector<wstring> words; //最后得出的分词结果
-	word_freq L_freq,R_freq,freq; //词频统计类:左邻字，右邻字，单字
+	word_freq L_freq,freq; //词频统计类:左邻字，，单字
 	//wcout<<str<<endl;
 	for (int i=0;i<symbol.size();i++)//删除标点符号
 	{
@@ -93,16 +93,22 @@ int main(int argc,char *argv[])
 			tmp=L"";
 		}
 	}
-	for(long long i=0;i<split.size();i++) //构建左邻字集合
+	for(long long i=0;i<split.size();i++) //迭代地构建左邻字集合
 	{
-		tmp=L"";
 		wstring single_tmp;
-		for(long long j=0;j<split[i].size();j++)
+		for(long long h=0;h<split[i].size();h++)
 		{
-			tmp+=split[i][j];
-			L_freq.add(tmp);
-			single_tmp=split[i][j];
-			freq.add(single_tmp);
+			tmp=L"";
+			for(long long j=h;j<split[i].size();j++)
+			{
+				tmp+=split[i][j];
+				if(tmp.size()>1)
+				{
+					L_freq.add(tmp);
+				}
+				single_tmp=split[i][j];
+				freq.add(single_tmp);
+			}
 		}
 	}
 	L_freq.calculate(str.size());
