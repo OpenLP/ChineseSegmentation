@@ -63,13 +63,13 @@ void word_freq::calculate(long long word_total)
 }
 class entropy //信息熵类
 {
-    public:
-        wstring letter; //信息熵计算的字
-        double L_bhd_entropy; //左邻字信息熵
-        double R_bhd_entropy; //右邻字信息熵
-    private:
-        vector<wstring> L_bhd; //左邻字
-        vector<wstring> R_bhd; //右邻字
+	public:
+		wstring letter; //信息熵计算的字
+		double L_bhd_entropy; //左邻字信息熵
+		double R_bhd_entropy; //右邻字信息熵
+	private:
+		vector<wstring> L_bhd; //左邻字
+		vector<wstring> R_bhd; //右邻字
 };
 int main(int argc,char *argv[])
 {
