@@ -6,6 +6,12 @@
 #include<vector>
 #include<locale>
 using namespace std;
+class word_freq //词频类，用于存储和统计词频
+{
+	public:
+		wstring word; //词
+		double freq; //词频
+};
 int main(int argc,char *argv[])
 {
 	setlocale(LC_ALL, ""); //更改字符集为UTF-8
@@ -19,11 +25,26 @@ int main(int argc,char *argv[])
 		{
 			if (symbol[i]==str[j])
 			{
-				str[j] =L' ';
+				str[j]=L' ';
 			}
 		}
 	}
-	
-	wcout<<str<<endl;
+	wstring tmp; //临时字符串
+	for(int i=0;i<str.size();i++) //将字符串以空格分隔，存入wstring数组中
+	{
+		if(str[i]!=L' ')
+		{
+			tmp+=str[i];
+		}
+		else
+		{
+			split.push_back(tmp);
+			tmp=L"";
+		}
+	}
+	for(int i=0;i<split.size();i++)
+	{
+		wcout<<split[i]<<endl;
+	}
 	return 0;
 }
