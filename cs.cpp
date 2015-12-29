@@ -28,16 +28,16 @@ bool word_freq::add(wstring added_string)
 		{
 			status=true;
 		}
-		if(status==false)
-		{
-			word.push_back(added_string);
-			freq.push_back(0.0);
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+	}
+	if(status==false)
+	{
+		word.push_back(added_string);
+		freq.push_back(0.0);
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 int main(int argc,char *argv[])
@@ -46,6 +46,7 @@ int main(int argc,char *argv[])
 	wstring str=L"十四是十四，四十是四十。十四不是四十，四十不是十四。"; //待分词的字符串
 	wstring symbol=L"，。！—；【】：《》"; //特殊符号
 	vector<wstring> split; //分割后的字符串
+	word_freq freq; //词频统计类
 	//wcout<<str<<endl;
 	for (int i=0;i<symbol.size();i++)//删除标点符号
 	{
@@ -76,7 +77,10 @@ int main(int argc,char *argv[])
 		for(long long j=0;j<split[i].size();j++)
 		{
 			tmp+=split[i][j];
-
+			if(freq.add(tmp))
+			{
+				wcout<<L"Added success"<<endl;
+			}
 		}
 	}
 	for(int i=0;i<split.size();i++)
