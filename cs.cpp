@@ -9,9 +9,37 @@ using namespace std;
 class word_freq //词频类，用于存储和统计词频
 {
 	public:
-		wstring word; //词
-		double freq; //词频
+		long long count(); //统计单词个数
+		bool add(wstring); //添加新词
+	private:
+		vector<wstring> word; //词
+		vector<double> freq; //词频
 };
+long long word_freq::count()
+{
+	return this->word.size();
+}
+bool word_freq::add(wstring added_string)
+{
+	bool status=false; //该单词是否已经存在
+	for(int i=0;i<this->word.size();i++)
+	{
+		if(word[i]==added_string)
+		{
+			status=true;
+		}
+		if(status==false)
+		{
+			word.push_back(added_string);
+			freq.push_back(0.0);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
 int main(int argc,char *argv[])
 {
 	setlocale(LC_ALL, ""); //更改字符集为UTF-8
@@ -21,7 +49,7 @@ int main(int argc,char *argv[])
 	//wcout<<str<<endl;
 	for (int i=0;i<symbol.size();i++)//删除标点符号
 	{
-		for (int j=0;j<str.size();j++)
+		for (long long j=0;j<str.size();j++)
 		{
 			if (symbol[i]==str[j])
 			{
@@ -30,7 +58,7 @@ int main(int argc,char *argv[])
 		}
 	}
 	wstring tmp; //临时字符串
-	for(int i=0;i<str.size();i++) //将字符串以空格分隔，存入wstring数组中
+	for(long long i=0;i<str.size();i++) //将字符串以空格分隔，存入wstring数组中
 	{
 		if(str[i]!=L' ')
 		{
@@ -40,6 +68,15 @@ int main(int argc,char *argv[])
 		{
 			split.push_back(tmp);
 			tmp=L"";
+		}
+	}
+	for(long long i=0;i<split.size();i++) //构建左邻字集合
+	{
+		tmp=L"";
+		for(long long j=0;j<split[i].size();j++)
+		{
+			tmp+=split[i][j];
+
 		}
 	}
 	for(int i=0;i<split.size();i++)
