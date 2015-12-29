@@ -11,7 +11,18 @@ int main(int argc,char *argv[])
         setlocale(LC_ALL, ""); //更改字符集为UTF-8
         wstring str=L"十四是十四，四十是四十。十四不是四十，四十不是十四。"; //待分词的字符串
         wstring symbol=L"，。！—；【】：《》"; //特殊符号
-        //wcin>>cn;
-        wcout<<a<<endl;
+		wcout << symbol.size() << endl;
+        //wcout<<str<<endl;
+		for (int i=0; i<symbol.size();  i++)
+		{
+			for (int j=0; j<str.size(); j++)
+			{
+				if (symbol[i] == str[j])
+				{
+					str[j] =L' ';
+				}
+			}
+		}
+		wcout << str << endl;
         return 0;
 }
