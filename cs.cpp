@@ -11,9 +11,11 @@ class word_freq //词频类，用于存储和统计词频
 	public:
 		long long count(); //统计单词个数
 		bool add(wstring); //添加新词
+		void print(); //打印词频表中的词
 	private:
 		vector<wstring> word; //词
 		vector<double> freq; //词频
+		vector<long long> times; //单词出现次数
 };
 long long word_freq::count()
 {
@@ -24,21 +26,31 @@ bool word_freq::add(wstring added_string)
 	bool status=false; //该单词是否已经存在
 	for(int i=0;i<this->word.size();i++)
 	{
-		if(word[i]==added_string)
+		if(this->word[i]==added_string)
 		{
 			status=true;
+			this->times[i]++; //如果存在，则增加出现次数
 		}
 	}
 	if(status==false)
 	{
-		word.push_back(added_string);
-		freq.push_back(0.0);
+		this->word.push_back(added_string);
+		this->freq.push_back(0.0);
+		this->times.push_back(1);
 		return true;
 	}
 	else
 	{
 		return false;
 	}
+}
+void word_freq::print()
+{
+	for(int i=0;i<this->word.size();i++)
+	{
+		wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+	}
+	return;
 }
 int main(int argc,char *argv[])
 {
@@ -77,12 +89,10 @@ int main(int argc,char *argv[])
 		for(long long j=0;j<split[i].size();j++)
 		{
 			tmp+=split[i][j];
-			if(freq.add(tmp))
-			{
-				wcout<<L"Added success"<<endl;
-			}
+			freq.add(tmp);
 		}
 	}
+	freq.print();
 	for(int i=0;i<split.size();i++)
 	{
 		wcout<<split[i]<<endl;
