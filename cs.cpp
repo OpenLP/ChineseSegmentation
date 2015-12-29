@@ -13,7 +13,7 @@ int main(int argc,char *argv[])
         wstring symbol=L"，。！—；【】：《》"; //特殊符号
 		wcout << symbol.size() << endl;
         //wcout<<str<<endl;
-		for (int i=0; i<symbol.size();  i++)
+		for (int i=0; i<symbol.size();  i++)//删除标点符号
 		{
 			for (int j=0; j<str.size(); j++)
 			{
