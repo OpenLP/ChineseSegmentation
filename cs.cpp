@@ -80,7 +80,7 @@ int main(int argc,char *argv[])
 	vector<wstring> words; //最后得出的分词结果
 	word_freq L_freq,freq; //词频统计类:左邻字，单字
 	//wcout<<str<<endl;
-	for (int i=0;i<symbol.size();i++)//删除标点符号
+	for (long long i=0;i<symbol.size();i++)//删除标点符号
 	{
 		for (long long j=0;j<str.size();j++)
 		{
