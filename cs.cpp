@@ -57,15 +57,23 @@ int main(int argc,char *argv[])
 			}
 		}
 	}
-	L_freq.calculate(str.size());
-	L_freq.print();
-	freq.calculate(str.size());
-	freq.print();
-	//计算信息熵
-	/*
-	for(long long i=0;i<split.size();i++)
+	//字符串逆序
+	for(long long i=split.size()-1;i>=0;i--)
 	{
-		wcout<<split[i]<<endl;
-	}*/
+		long long h=split[split.size()-1].size();
+		for(long long j=h-1;j>=0;j++)
+		{
+			string split_2[i][j]=split_2[i]+split[i][j];
+		}
+	}
+	L_freq.calculate(str.size());
+	//L_freq.print();
+	freq.calculate(str.size());
+	//wcout<<freq.word<<endl;
+	//计算信息熵
+	for(long long i=0;i<L_freq.word.size();i++)
+	{
+		wcout<<L_freq.word[i]<<endl;
+	}
 	return 0;
 }

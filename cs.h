@@ -11,24 +11,24 @@ class word_freq //词频类，用于存储和统计词频
 };
 long long word_freq::count()
 {
-	return this->word.size();
+	return  word.size();
 }
 bool word_freq::add(wstring added_string)
 {
 	bool status=false; //该单词是否已经存在
-	for(int i=0;i<this->word.size();i++)
+	for(int i=0;i< word.size();i++)
 	{
-		if(this->word[i]==added_string)
+		if( word[i]==added_string)
 		{
 			status=true;
-			this->times[i]++; //如果存在，则增加出现次数
+			 times[i]++; //如果存在，则增加出现次数
 		}
 	}
 	if(status==false)
 	{
-		this->word.push_back(added_string);
-		this->freq.push_back(0.0);
-		this->times.push_back(1);
+		 word.push_back(added_string);
+		 freq.push_back(0.0);
+		 times.push_back(1);
 		return true;
 	}
 	else
@@ -38,17 +38,17 @@ bool word_freq::add(wstring added_string)
 }
 void word_freq::print()
 {
-	for(int i=0;i<this->word.size();i++)
+	for(int i=0;i< word.size();i++)
 	{
-		wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+		wcout<<L"*"<< word[i]<<L":"<< freq[i]<<L"@"<< times[i]<<endl;
 	}
 	return;
 }
 void word_freq::calculate(long long word_total)
 {
-	for(int i=0;i<this->word.size();i++)
+	for(int i=0;i< word.size();i++)
 	{
-		this->freq[i]=(double)this->times[i]/(double)word_total;
+		 freq[i]=(double) times[i]/(double)word_total;
 	}
 	return;
 }
@@ -58,7 +58,6 @@ class entropy //信息熵类
 		wstring letter; //信息熵计算的字
 		double L_bhd_entropy; //左邻字信息熵
 		double R_bhd_entropy; //右邻字信息熵
-	private:
 		vector<wstring> L_bhd; //左邻字
 		vector<wstring> R_bhd; //右邻字
 };
