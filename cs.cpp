@@ -13,7 +13,6 @@ class word_freq //词频类，用于存储和统计词频
 		bool add(wstring); //添加新词
 		void print(); //打印词频表中的词
 		void calculate(long long); //统计词频方法
-	private:
 		vector<wstring> word; //词
 		vector<double> freq; //词频
 		vector<long long> times; //单词出现次数
@@ -126,10 +125,11 @@ int main(int argc,char *argv[])
 	freq.calculate(str.size());
 	freq.print();
 	//计算信息熵
-	
+	wcout << freq.word << endl;
+	/*
 	for(long long i=0;i<split.size();i++)
 	{
 		wcout<<split[i]<<endl;
-	}
+	}*/
 	return 0;
 }
