@@ -78,7 +78,7 @@ int main(int argc,char *argv[])
 	wstring symbol=L"，。！—；【】：《》"; //特殊符号
 	vector<wstring> split; //分割后的字符串
 	vector<wstring> words; //最后得出的分词结果
-	word_freq L_freq,freq; //词频统计类:左邻字，，单字
+	word_freq L_freq,freq; //词频统计类:左邻字，单字
 	//wcout<<str<<endl;
 	for (int i=0;i<symbol.size();i++)//删除标点符号
 	{
