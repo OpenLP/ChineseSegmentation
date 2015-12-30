@@ -5,6 +5,8 @@ class word_freq //词频类，用于存储和统计词频
 		bool add(wstring); //添加新词
 		void print(); //打印词频表中的词
 		void calculate(long long); //统计词频方法
+		long long query(wstring); //查询词信息
+	private:
 		vector<wstring> word; //词
 		vector<double> freq; //词频
 		vector<long long> times; //单词出现次数
@@ -51,6 +53,17 @@ void word_freq::calculate(long long word_total)
 		this->freq[i]=(double)this->times[i]/(double)word_total;
 	}
 	return;
+}
+long long word_freq::query(wstring w)
+{
+	for(int i=0;i<this->word.size();i++)
+	{
+		if(word[i]==w)
+		{
+			return times[i];
+		}
+	}
+	return 0;
 }
 class entropy //信息熵类
 {
