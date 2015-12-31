@@ -1,3 +1,5 @@
+//无语料库的中文分词，C++实现，标准库
+//author:@DGideas
 class word_freq //词频类，用于存储和统计词频
 {
 	public:
@@ -27,9 +29,9 @@ bool word_freq::add(wstring added_string)
 	}
 	if(status==false)
 	{
-		 word.push_back(added_string);
-		 freq.push_back(0.0);
-		 times.push_back(1);
+		word.push_back(added_string);
+		freq.push_back(0.0);
+		times.push_back(1);
 		return true;
 	}
 	else
@@ -39,7 +41,7 @@ bool word_freq::add(wstring added_string)
 }
 void word_freq::print()
 {
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<word.size();i++)
 	{
 		wcout<<L"*"<<word[i]<<L":"<<freq[i]<<L"@"<<times[i]<<endl;
 	}
@@ -55,7 +57,7 @@ void word_freq::calculate(long long word_total)
 }
 long long word_freq::query(wstring w)
 {
-	for(int i=0;i<this->word.size();i++)
+	for(int i=0;i<word.size();i++)
 	{
 		if(word[i]==w)
 		{
