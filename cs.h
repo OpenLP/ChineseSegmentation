@@ -6,7 +6,6 @@ class word_freq //词频类，用于存储和统计词频
 		void print(); //打印词频表中的词
 		void calculate(long long); //统计词频方法
 		long long query(wstring); //查询词信息
-	private:
 		vector<wstring> word; //词
 		vector<double> freq; //词频
 		vector<long long> times; //单词出现次数
