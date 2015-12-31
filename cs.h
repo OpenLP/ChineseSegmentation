@@ -12,17 +12,17 @@ class word_freq //词频类，用于存储和统计词频
 };
 long long word_freq::count()
 {
-	return  word.size();
+	return word.size();
 }
 bool word_freq::add(wstring added_string)
 {
 	bool status=false; //该单词是否已经存在
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<word.size();i++)
 	{
-		if( word[i]==added_string)
+		if(word[i]==added_string)
 		{
 			status=true;
-			 times[i]++; //如果存在，则增加出现次数
+			times[i]++; //如果存在，则增加出现次数
 		}
 	}
 	if(status==false)
@@ -41,15 +41,15 @@ void word_freq::print()
 {
 	for(int i=0;i< word.size();i++)
 	{
-		wcout<<L"*"<< word[i]<<L":"<< freq[i]<<L"@"<< times[i]<<endl;
+		wcout<<L"*"<<word[i]<<L":"<<freq[i]<<L"@"<<times[i]<<endl;
 	}
 	return;
 }
 void word_freq::calculate(long long word_total)
 {
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<word.size();i++)
 	{
-		 freq[i]=(double) times[i]/(double)word_total;
+		 freq[i]=(double)times[i]/(double)word_total;
 	}
 	return;
 }
