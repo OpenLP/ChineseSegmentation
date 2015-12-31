@@ -59,11 +59,11 @@ int main(int argc,char *argv[])
 	}
 	//字符串逆序
 	vector<wstring> split_2;
-	for(decltype(split.size()) i=split.size()-1;i>=0;i--)
+	for(string::size_type i=split.size()-1;i>=0;i--)
 	{
 		//long long split_len=split.size();
-		long long split_len_2=split[i].size();
-		for(decltype(split_len_2) j=split_len_2-1;j>=0;j++)
+		string::size_type split_len_2=split[i].size();
+		for(string::size_type j=split_len_2-1;j>=0;j++)
 		{
 			split_2[i][j]=split_2[i][j]+split[i][j];
 		}
