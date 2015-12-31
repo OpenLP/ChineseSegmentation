@@ -1,4 +1,5 @@
 //author:@DGideas
+//Every setback has a major comeback.
 using namespace std;
 #include<iostream>
 #include<string>
@@ -40,12 +41,19 @@ int main(int argc,char *argv[])
 	{
 		for(int j=0;j<split[i].size();j++)
 		{
+			tmp=L"";
 			for(int h=j;h<split[i].size();h++)
 			{
-
+				tmp+=split[i][h];
+				if(tmp.size()>1)
+				{
+					L_freq.add(tmp);
+				}
 			}
 		}
 	}
+	L_freq.calculate(str.size());
+	L_freq.print();
 	wcout<<str<<endl;
 	return 0;
 }

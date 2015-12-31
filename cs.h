@@ -14,24 +14,24 @@ class word_freq //词频类，用于存储和统计词频
 };
 long long word_freq::count()
 {
-	return word.size();
+	return this->word.size();
 }
 bool word_freq::add(wstring added_string)
 {
 	bool status=false; //该单词是否已经存在
-	for(int i=0;i<word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		if(word[i]==added_string)
+		if(this->word[i]==added_string)
 		{
 			status=true;
-			times[i]++; //如果存在，则增加出现次数
+			this->times[i]++; //如果存在，则增加出现次数
 		}
 	}
 	if(status==false)
 	{
-		word.push_back(added_string);
-		freq.push_back(0.0);
-		times.push_back(1);
+		this->word.push_back(added_string);
+		this->freq.push_back(0.0);
+		this->times.push_back(1);
 		return true;
 	}
 	else
@@ -41,27 +41,27 @@ bool word_freq::add(wstring added_string)
 }
 void word_freq::print()
 {
-	for(int i=0;i<word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		wcout<<L"*"<<word[i]<<L":"<<freq[i]<<L"@"<<times[i]<<endl;
+		wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
 	}
 	return;
 }
 void word_freq::calculate(long long word_total)
 {
-	for(int i=0;i<word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		 freq[i]=(double)times[i]/(double)word_total;
+		this->freq[i]=(double)this->times[i]/(double)word_total;
 	}
 	return;
 }
 long long word_freq::query(wstring w)
 {
-	for(int i=0;i<word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		if(word[i]==w)
+		if(this->word[i]==w)
 		{
-			return times[i];
+			return this->times[i];
 		}
 	}
 	return 0;
