@@ -1,6 +1,6 @@
 //无语料库的中文分词，C++实现，标准库
 //author:@DGideas
-class word_freq //词频类，用于存储和统计词频
+class word_freq //词频类，用于存储和统计词频；统计词语的凝聚程度
 {
 	public:
 		long long count(); //统计单词个数
@@ -18,13 +18,13 @@ long long word_freq::count()
 }
 bool word_freq::add(wstring added_string)
 {
-	bool status=false; //该单词是否已经存在
-	for(int i=0;i<this->word.size();i++)
+	bool status=false;
+	for(long long i=0;i<this->word.size();i++)
 	{
 		if(this->word[i]==added_string)
 		{
 			status=true;
-			this->times[i]++; //如果存在，则增加出现次数
+			this->times[i]++;
 		}
 	}
 	if(status==false)
@@ -41,7 +41,7 @@ bool word_freq::add(wstring added_string)
 }
 void word_freq::print(double freq_limit_min=0.0)
 {
-	for(int i=0;i<this->word.size();i++)
+	for(long long i=0;i<this->word.size();i++)
 	{
 		if(this->freq[i]>=freq_limit_min)
 		{
@@ -52,7 +52,7 @@ void word_freq::print(double freq_limit_min=0.0)
 }
 void word_freq::calculate(long long word_total)
 {
-	for(int i=0;i<this->word.size();i++)
+	for(long long i=0;i<this->word.size();i++)
 	{
 		this->freq[i]=(double)this->times[i]/(double)word_total;
 	}
@@ -60,7 +60,7 @@ void word_freq::calculate(long long word_total)
 }
 long long word_freq::query(wstring w)
 {
-	for(int i=0;i<this->word.size();i++)
+	for(long long i=0;i<this->word.size();i++)
 	{
 		if(this->word[i]==w)
 		{
@@ -69,12 +69,16 @@ long long word_freq::query(wstring w)
 	}
 	return 0;
 }
-class entropy //信息熵类
+class entropy //信息熵类；用于统计词语的自由程度
 {
 	public:
-		wstring letter; //信息熵计算的字
-		double L_bhd_entropy; //左邻字信息熵
-		double R_bhd_entropy; //右邻字信息熵
-		vector<wstring> L_bhd; //左邻字
-		vector<wstring> R_bhd; //右邻字
+		entropy()
+		{
+			wcout<<L"欢迎使用信息熵类！"<<endl;
+		}
+		vector<wstring> letter; //信息熵计算的字
+		vector<double> L_bhd_entropy; //左邻字信息熵
+		vector<double> R_bhd_entropy; //右邻字信息熵
+		vector<vector<wstring> > L_bhd; //左邻字
+		vector<vector<wstring> > R_bhd; //右邻字
 };
