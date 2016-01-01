@@ -63,7 +63,6 @@ int main(int argc,char *argv[])
 	{
 		for(int j=split[i].size()-1;j>=0;j--)
 		{
-			//split_2+=split[i][j];
 		}
 	}*/
 	L_freq.calculate(str.size());
