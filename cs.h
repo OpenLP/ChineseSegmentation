@@ -5,7 +5,7 @@ class word_freq //词频类，用于存储和统计词频
 	public:
 		long long count(); //统计单词个数
 		bool add(wstring); //添加新词
-		void print(); //打印词频表中的词
+		void print(double); //打印词频表中的词
 		void calculate(long long); //统计词频方法
 		long long query(wstring); //查询词信息
 		vector<wstring> word; //词
@@ -39,11 +39,14 @@ bool word_freq::add(wstring added_string)
 		return false;
 	}
 }
-void word_freq::print()
+void word_freq::print(double freq_limit_min=0.0)
 {
 	for(int i=0;i<this->word.size();i++)
 	{
-		wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+		if(this->freq[i]>=freq_limit_min)
+		{
+			wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+		}
 	}
 	return;
 }

@@ -1,5 +1,5 @@
 //author:@DGideas
-//Every setback has a major comeback.
+//Every setback has a major comeback
 using namespace std;
 #include<iostream>
 #include<string>
@@ -42,6 +42,9 @@ int main(int argc,char *argv[])
 		for(int j=0;j<split[i].size();j++)
 		{
 			tmp=L"";
+			wstring c_tmp;
+			c_tmp=split[i][j];
+			freq.add(c_tmp);
 			for(int h=j;h<split[i].size();h++)
 			{
 				tmp+=split[i][h];
@@ -53,7 +56,9 @@ int main(int argc,char *argv[])
 		}
 	}
 	L_freq.calculate(str.size());
-	L_freq.print();
+	L_freq.print(0.1);
+	freq.calculate(str.size());
+	freq.print();
 	wcout<<str<<endl;
 	return 0;
 }
