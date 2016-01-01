@@ -58,16 +58,14 @@ int main(int argc,char *argv[])
 		}
 	}
 	//字符串逆序
-	vector<wstring> split_2;
-	for(string::size_type i=split.size()-1;i>=0;i--)
+	vector<wstring> split_2{"四十是不十四","十四是不四十","十四是十四","四十是四十"};
+	/*for(int i=3;i>=0;i--)
 	{
-		//long long split_len=split.size();
-		string::size_type split_len_2=split[i].size();
-		for(string::size_type j=split_len_2-1;j>=0;j++)
+		for(int j=split[i].size()-1;j>=0;j--)
 		{
-			split_2[i][j]=split_2[i][j]+split[i][j];
+			//split_2+=split[i][j];
 		}
-	}
+	}*/
 	L_freq.calculate(str.size());
 	//L_freq.print();
 	freq.calculate(str.size());
@@ -75,7 +73,7 @@ int main(int argc,char *argv[])
 	//计算信息熵
 	for(long long i=0;i<L_freq.word.size();i++)
 	{
-		wcout<<L_freq.word[i]<<endl;
+		//wcout<<L_freq.word[i]<<endl;
 	}
 	return 0;
 }
