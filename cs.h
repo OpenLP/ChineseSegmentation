@@ -1,9 +1,11 @@
+//无语料库的中文分词，C++实现，标准库
+//author:@DGideas
 class word_freq //词频类，用于存储和统计词频
 {
 	public:
 		long long count(); //统计单词个数
 		bool add(wstring); //添加新词
-		void print(); //打印词频表中的词
+		void print(double); //打印词频表中的词
 		void calculate(long long); //统计词频方法
 		long long query(wstring); //查询词信息
 		vector<wstring> word; //词
@@ -12,24 +14,24 @@ class word_freq //词频类，用于存储和统计词频
 };
 long long word_freq::count()
 {
-	return  word.size();
+	return this->word.size();
 }
 bool word_freq::add(wstring added_string)
 {
 	bool status=false; //该单词是否已经存在
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		if( word[i]==added_string)
+		if(this->word[i]==added_string)
 		{
 			status=true;
-			 times[i]++; //如果存在，则增加出现次数
+			this->times[i]++; //如果存在，则增加出现次数
 		}
 	}
 	if(status==false)
 	{
-		 word.push_back(added_string);
-		 freq.push_back(0.0);
-		 times.push_back(1);
+		this->word.push_back(added_string);
+		this->freq.push_back(0.0);
+		this->times.push_back(1);
 		return true;
 	}
 	else
@@ -37,19 +39,22 @@ bool word_freq::add(wstring added_string)
 		return false;
 	}
 }
-void word_freq::print()
+void word_freq::print(double freq_limit_min=0.0)
 {
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		wcout<<L"*"<< word[i]<<L":"<< freq[i]<<L"@"<< times[i]<<endl;
+		if(this->freq[i]>=freq_limit_min)
+		{
+			wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+		}
 	}
 	return;
 }
 void word_freq::calculate(long long word_total)
 {
-	for(int i=0;i< word.size();i++)
+	for(int i=0;i<this->word.size();i++)
 	{
-		 freq[i]=(double) times[i]/(double)word_total;
+		this->freq[i]=(double)this->times[i]/(double)word_total;
 	}
 	return;
 }
@@ -57,9 +62,9 @@ long long word_freq::query(wstring w)
 {
 	for(int i=0;i<this->word.size();i++)
 	{
-		if(word[i]==w)
+		if(this->word[i]==w)
 		{
-			return times[i];
+			return this->times[i];
 		}
 	}
 	return 0;
