@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc,char *argv[])
 {
 	setlocale(LC_ALL, "");
-	wstring str=L"十四是十四，四十是四十。十四不是四十，四十不是十四。";
+	wstring str=L"这是一段测试文字，之所以叫测试文字，是因为我们在实际生产中，着重对程序代码进行测试。我们认为，只有经过多次测试的代码，才是好代码。";
 	vector<wstring> split;
 	wstring symbol=L"，。！—；【】：《》";
 	word_freq L_freq,freq;
@@ -56,9 +56,9 @@ int main(int argc,char *argv[])
 		}
 	}
 	L_freq.calculate(str.size());
-	L_freq.print(0.1);
+	L_freq.print(0.02);
 	freq.calculate(str.size());
-	freq.print();
+	//freq.print();
 	wcout<<str<<endl;
 	return 0;
 }
