@@ -57,7 +57,7 @@ int main(int argc,char *argv[])
 		}
 	}
 	L_freq.calculate(str.size());
-	L_freq.print(0.02);
+	L_freq.print(0.03);
 	freq.calculate(str.size());
 	//freq.print();
 	wcout<<str<<endl;

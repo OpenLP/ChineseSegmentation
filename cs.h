@@ -69,16 +69,10 @@ long long word_freq::query(wstring w)
 	}
 	return 0;
 }
+class entropy_array //信息熵类：键——值对预备类
+{
+};
 class entropy //信息熵类；用于统计词语的自由程度
 {
-	public:
-		entropy()
-		{
-			wcout<<L"欢迎使用信息熵类！"<<endl;
-		}
-		vector<wstring> letter; //信息熵计算的字
-		vector<double> L_bhd_entropy; //左邻字信息熵
-		vector<double> R_bhd_entropy; //右邻字信息熵
-		vector<vector<wstring> > L_bhd; //左邻字
-		vector<vector<wstring> > R_bhd; //右邻字
+	
 };
