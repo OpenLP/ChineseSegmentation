@@ -89,14 +89,14 @@ int main(int argc,char *argv[])
 		for(int i=0;i<L_freq.word.size();i++)
 		{
 			xinxishang.push_back(xinxiliang[i]*L_freq.freq[i]);
-			cout<<xinxishang[i]<<endl;
+			//cout<<xinxishang[i]<<endl;
 		}
 		//测试输出
 		for(int i=0;i<L_freq.word.size();i++)
 		{
-			//wcout<<L_freq.word[i];
-			wcout<<L"频率"<<L_freq.freq[i];
-			wcout<<L"信息熵"<<xinxishang[i]<<endl;
+			wcout<<L_freq.word[i];
+			wcout<<L_freq.freq[i]<<L" ";
+			wcout<<xinxishang[i]<<endl;
 		}
 		return 0;
 }
