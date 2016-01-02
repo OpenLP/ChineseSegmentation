@@ -70,12 +70,17 @@ long long word_freq::query(wstring w)
 class entropy
 {
 		public:
+				void calculate();
 				wstring word;
 				vector<wstring> Lbhd;
 				vector<wstring> Rbhd;
 				double Letp;
 				double Retp;
 };
+void entropy::calculate()
+{
+	
+}
 class entropy_array
 {
 		public:
