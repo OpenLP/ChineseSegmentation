@@ -89,11 +89,8 @@ int main(int argc,char *argv[])
 		for(int i=0;i<L_freq.word.size();i++)
 		{
 			xinxishang.push_back(xinxiliang[i]*L_freq.freq[i]);
-<<<<<<< HEAD
 			//cout<<xinxishang[i]<<endl;
-=======
 			wcout<<xinxishang[i]<<endl;
->>>>>>> d5514a9b09ca23acbc11d30ede3a4e9414ea46d0
 		}
 		//测试输出
 		for(int i=0;i<L_freq.word.size();i++)
