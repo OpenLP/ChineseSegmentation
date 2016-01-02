@@ -72,10 +72,11 @@ int main(int argc,char *argv[])
 		}
 		
 		L_freq.calculate(str.size());
-		/*for(int i=0;i<L_freq.word.size();i++)
+		//输出L_freq相关变量
+		for(int i=0;i<L_freq.word.size();i++)
 		{
-			wcout<<L_freq.times[i]<<L" "<<endl;
-		}*/
+			//wcout<<L_freq.word[i]<<L" "<<endl;
+		}
 		//计算信息量
 		vector<double> xinxiliang;
 		for(int i=0;i<L_freq.word.size();i++)
@@ -84,11 +85,18 @@ int main(int argc,char *argv[])
 			//wcout<<xinxiliang[i]<<endl;
 		}
 		//计算信息熵
-		double xinxishang=0;
+		vector<double> xinxishang;
 		for(int i=0;i<L_freq.word.size();i++)
 		{
-			xinxishang+=xinxiliang[i]*L_freq.freq[i];
+			xinxishang.push_back(xinxiliang[i]*L_freq.freq[i]);
+			cout<<xinxishang[i]<<endl;
 		}
-		cout<<xinxishang<<endl;
+		//测试输出
+		for(int i=0;i<L_freq.word.size();i++)
+		{
+			//wcout<<L_freq.word[i];
+			wcout<<L"频率"<<L_freq.freq[i];
+			wcout<<L"信息熵"<<xinxishang[i]<<endl;
+		}
 		return 0;
 }
