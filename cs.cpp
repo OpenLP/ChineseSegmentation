@@ -87,7 +87,7 @@ int main(int argc,char *argv[])
 		double xinxishang=0;
 		for(int i=0;i<L_freq.word.size();i++)
 		{
-			xinxishang+=xinxiliang[i]/L_freq.freq[i];
+			xinxishang+=xinxiliang[i]*L_freq.freq[i];
 		}
 		cout<<xinxishang<<endl;
 		return 0;
