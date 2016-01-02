@@ -76,7 +76,19 @@ int main(int argc,char *argv[])
 		{
 			wcout<<L_freq.times[i]<<L" "<<endl;
 		}*/
+		//计算信息量
+		vector<double> xinxiliang;
+		for(int i=0;i<L_freq.word.size();i++)
+		{
+			xinxiliang.push_back(-log10 (L_freq.freq[i]));
+			//wcout<<xinxiliang[i]<<endl;
+		}
 		//计算信息熵
-		
+		double xinxishang=0;
+		for(int i=0;i<L_freq.word.size();i++)
+		{
+			xinxishang+=xinxiliang[i]/L_freq.freq[i];
+		}
+		cout<<xinxishang<<endl;
 		return 0;
 }
