@@ -64,7 +64,11 @@ int main(int argc,char *argv[])
 				split_NESC.push_back(L"");
 				for(int j=split[i].size()-1;j>=0;j--)
 				{
-						split_NESC[i]+=split[i][j];
+					wcout<<split[i][j]<<endl;
+					for(int h=0;h<split[i].size();h++)
+					{
+						split_NESC[h]+=split[i][j];
+					}
 				}
 		}
 		
