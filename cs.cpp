@@ -89,7 +89,7 @@ int main(int argc,char *argv[])
 		for(int i=0;i<L_freq.word.size();i++)
 		{
 			xinxishang.push_back(xinxiliang[i]*L_freq.freq[i]);
-			cout<<xinxishang[i]<<endl;
+			wcout<<xinxishang[i]<<endl;
 		}
 		//测试输出
 		for(int i=0;i<L_freq.word.size();i++)
