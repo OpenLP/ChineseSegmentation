@@ -70,7 +70,7 @@ int main(int argc,char *argv[])
 		
 		for(int i=0;i<split_NESC.size();i++)
 		{
-	//	wcout<<split_NESC[i]<<endl;
+		//wcout<<split_NESC[i]<<endl;
 		}
 		/*for(int i=3;i>=0;i--)
 		  {
