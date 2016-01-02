@@ -14,6 +14,7 @@ int main(int argc,char *argv[])
 	vector<wstring> split;
 	wstring symbol=L"，。！—；【】：《》";
 	word_freq L_freq,freq;
+	entropy_array etp;
 	for(int i=0;i<symbol.size();i++)
 	{
 		for(int j=0;j<str.size();j++)
@@ -56,7 +57,7 @@ int main(int argc,char *argv[])
 		}
 	}
 	L_freq.calculate(str.size());
-	L_freq.print();
+	L_freq.print(0.03);
 	freq.calculate(str.size());
 	//freq.print();
 	wcout<<str<<endl;

@@ -87,7 +87,7 @@ int main(int argc,char *argv[])
 		freq.calculate(str.size());
 		//wcout<<freq.word<<endl;
 		//计算信息熵
-		for(long long i=0;i<L_freq.word.size();i++)
+		for(long long i=0;i<L_freq.size();i++)
 		{
 				//wcout<<L_freq.word[i]<<endl;
 		}

@@ -1,19 +1,25 @@
 //无语料库的中文分词，C++实现，标准库
+//https://github.com/OpenLP/ChineseSegmentation/wiki
 //author:@DGideas
-class word_freq //词频类，用于存储和统计词频；统计词语的凝聚程度
+class word_freq
 {
 	public:
-		long long count(); //统计单词个数
-		bool add(wstring); //添加新词
-		void print(double); //打印词频表中的词
-		void calculate(long long); //统计词频方法
-		long long query(wstring); //查询词信息
+		long long count();
+		long long size();
+		bool add(wstring);
+		void print(double);
+		void calculate(long long);
+		long long query(wstring);
 	private:
-		vector<wstring> word; //词
-		vector<double> freq; //词频
-		vector<long long> times; //单词出现次数
+		vector<wstring> word;
+		vector<double> freq;
+		vector<long long> times;
 };
 long long word_freq::count()
+{
+	return this->word.size();
+}
+long long word_freq::size()
 {
 	return this->word.size();
 }
@@ -70,11 +76,11 @@ long long word_freq::query(wstring w)
 	}
 	return 0;
 }
-class entropy //信息熵类：用于统计词语的自由程度
+class entropy
 {
 	
 };
-class entropy_array //信息熵类：键——值对基类
+class entropy_array
 {
 	public:
 		bool addItem(wstring);
