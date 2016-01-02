@@ -73,11 +73,17 @@ long long word_freq::query(wstring w)
 }
 class entropy
 {
-	
+	public:
+		wstring word;
+		vector<wstring> L_bhd;
+		vector<wstring> R_bhd;
+		double L_etp;
+		double R_etp;
 };
 class entropy_array
 {
 	public:
+		bool fndItem(wstring);
 		bool addItem(wstring);
 		bool addLbhd(wstring,wstring);
 		bool addRbhd(wstring,wstring);
@@ -85,7 +91,7 @@ class entropy_array
 		vector<entropy> etp;
 		vector<wstring> etp_key;
 };
-bool entropy_array::addItem(wstring itemName)
+bool entropy_array::fndItem(wstring itemName)
 {
 	bool status=false;
 	for(long long i=0;i<this->etp_key.size();i++)
@@ -96,12 +102,23 @@ bool entropy_array::addItem(wstring itemName)
 			break;
 		}
 	}
+	return status;
+}
+bool entropy_array::addItem(wstring itemName)
+{
+	bool status=this->fndItem(itemName);
 	if(status==true)
 	{
 		return false;
 	}
 	entropy etp_i;
+	etp_i.word=itemName;
 	etp.push_back(etp_i);
 	etp_key.push_back(itemName);
 	return true;
-};
+}
+bool entropy_array::addLbhd(wstring itemName,wstring Lbhd)
+{
+	bool status=this->fndItem(itemName);
+
+}
