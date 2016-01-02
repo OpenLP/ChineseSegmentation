@@ -5,7 +5,6 @@ class word_freq
 {
 	public:
 		long long count();
-		long long size();
 		bool add(wstring);
 		void print(double);
 		void calculate(long long);
@@ -16,10 +15,6 @@ class word_freq
 		vector<long long> times;
 };
 long long word_freq::count()
-{
-	return this->word.size();
-}
-long long word_freq::size()
 {
 	return this->word.size();
 }
