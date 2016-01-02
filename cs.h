@@ -74,15 +74,15 @@ class entropy
 {
 	public:
 		wstring word;
-		vector<wstring> L_bhd;
-		vector<wstring> R_bhd;
-		double L_etp;
-		double R_etp;
+		vector<wstring> Lbhd;
+		vector<wstring> Rbhd;
+		double Letp;
+		double Retp;
 };
 class entropy_array
 {
 	public:
-		bool fndItem(wstring);
+		long long fndItem(wstring);
 		bool addItem(wstring);
 		bool addLbhd(wstring,wstring);
 		bool addRbhd(wstring,wstring);
@@ -90,23 +90,41 @@ class entropy_array
 		vector<entropy> etp;
 		vector<wstring> etp_key;
 };
-bool entropy_array::fndItem(wstring itemName)
+long long entropy_array::fndItem(wstring itemName)
 {
 	bool status=false;
+<<<<<<< HEAD
 	for(long long i=0;i< etp_key.size();i++)
+=======
+	long long location;
+	for(long long i=0;i<this->etp_key.size();i++)
+>>>>>>> ba83a43a6aef07a91cffeb3678e4bcb087182f4b
 	{
 		if(etp_key[i]==itemName)
 		{
 			status=true;
+			location=i;
 			break;
 		}
 	}
-	return status;
+	if(status==false)
+	{
+		return -1;
+	}
+	else
+	{
+		return location;
+	}
 }
 bool entropy_array::addItem(wstring itemName)
 {
+<<<<<<< HEAD
 	bool status= fndItem(itemName);
 	if(status==true)
+=======
+	long long status=this->fndItem(itemName);
+	if(status!=-1)
+>>>>>>> ba83a43a6aef07a91cffeb3678e4bcb087182f4b
 	{
 		return false;
 	}
@@ -118,6 +136,26 @@ bool entropy_array::addItem(wstring itemName)
 }
 bool entropy_array::addLbhd(wstring itemName,wstring Lbhd)
 {
+<<<<<<< HEAD
 	bool status= fndItem(itemName);
 
+=======
+	long long status=this->fndItem(itemName);
+	if(status==-1)
+	{
+		return false;
+	}
+	etp[status].Lbhd.push_back(Lbhd);
+	return true;
+}
+bool entropy_array::addRbhd(wstring itemName,wstring Rbhd)
+{
+	long long status=this->fndItem(itemName);
+	if(status==-1)
+	{
+		return false;
+	}
+	etp[status].Rbhd.push_back(Rbhd);
+	return true;
+>>>>>>> ba83a43a6aef07a91cffeb3678e4bcb087182f4b
 }
