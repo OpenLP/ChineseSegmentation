@@ -64,32 +64,19 @@ int main(int argc,char *argv[])
 				split_NESC.push_back(L"");
 				for(int j=split[i].size()-1;j>=0;j--)
 				{
-					wcout<<split[i][j]<<endl;
 					for(int h=0;h<split[i].size();h++)
 					{
-						split_NESC[h]+=split[i][j];
+						//split_NESC[h]+=split[i][j];
 					}
 				}
 		}
 		
-		for(int i=0;i<split_NESC.size();i++)
-		{
-		//wcout<<split_NESC[i]<<endl;
-		}
-		/*for(int i=3;i>=0;i--)
-		  {
-		  for(int j=split[i].size()-1;j>=0;j--)
-		  {
-		  }
-		  }*/
 		L_freq.calculate(str.size());
-		//L_freq.print();
-		freq.calculate(str.size());
-		//wcout<<freq.word<<endl;
-		//计算信息熵
-		for(long long i=0;i<L_freq.count();i++)
+		/*for(int i=0;i<L_freq.word.size();i++)
 		{
-				//wcout<<L_freq.word[i]<<endl;
-		}
+			wcout<<L_freq.times[i]<<L" "<<endl;
+		}*/
+		//计算信息熵
+		
 		return 0;
 }

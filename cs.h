@@ -9,31 +9,30 @@ class word_freq
 		void print(double);
 		void calculate(long long);
 		long long query(wstring);
-	private:
 		vector<wstring> word;
 		vector<double> freq;
 		vector<long long> times;
 };
 long long word_freq::count()
 {
-	return this->word.size();
+	return  word.size();
 }
 bool word_freq::add(wstring added_string)
 {
 	bool status=false;
-	for(long long i=0;i<this->word.size();i++)
+	for(long long i=0;i< word.size();i++)
 	{
-		if(this->word[i]==added_string)
+		if( word[i]==added_string)
 		{
 			status=true;
-			this->times[i]++;
+			 times[i]++;
 		}
 	}
 	if(status==false)
 	{
-		this->word.push_back(added_string);
-		this->freq.push_back(0.0);
-		this->times.push_back(1);
+		 word.push_back(added_string);
+		 freq.push_back(0.0);
+		 times.push_back(1);
 		return true;
 	}
 	else
@@ -43,30 +42,30 @@ bool word_freq::add(wstring added_string)
 }
 void word_freq::print(double freq_limit_min=0.0)
 {
-	for(long long i=0;i<this->word.size();i++)
+	for(long long i=0;i< word.size();i++)
 	{
-		if(this->freq[i]>=freq_limit_min)
+		if( freq[i]>=freq_limit_min)
 		{
-			wcout<<L"*"<<this->word[i]<<L":"<<this->freq[i]<<L"@"<<this->times[i]<<endl;
+			wcout<<L"*"<< word[i]<<L":"<< freq[i]<<L"@"<< times[i]<<endl;
 		}
 	}
 	return;
 }
 void word_freq::calculate(long long word_total)
 {
-	for(long long i=0;i<this->word.size();i++)
+	for(long long i=0;i< word.size();i++)
 	{
-		this->freq[i]=(double)this->times[i]/(double)word_total;
+		 freq[i]=(double) times[i]/(double)word_total;
 	}
 	return;
 }
 long long word_freq::query(wstring w)
 {
-	for(long long i=0;i<this->word.size();i++)
+	for(long long i=0;i< word.size();i++)
 	{
-		if(this->word[i]==w)
+		if( word[i]==w)
 		{
-			return this->times[i];
+			return  times[i];
 		}
 	}
 	return 0;
@@ -94,7 +93,7 @@ class entropy_array
 bool entropy_array::fndItem(wstring itemName)
 {
 	bool status=false;
-	for(long long i=0;i<this->etp_key.size();i++)
+	for(long long i=0;i< etp_key.size();i++)
 	{
 		if(etp_key[i]==itemName)
 		{
@@ -106,7 +105,7 @@ bool entropy_array::fndItem(wstring itemName)
 }
 bool entropy_array::addItem(wstring itemName)
 {
-	bool status=this->fndItem(itemName);
+	bool status= fndItem(itemName);
 	if(status==true)
 	{
 		return false;
@@ -119,6 +118,6 @@ bool entropy_array::addItem(wstring itemName)
 }
 bool entropy_array::addLbhd(wstring itemName,wstring Lbhd)
 {
-	bool status=this->fndItem(itemName);
+	bool status= fndItem(itemName);
 
 }
